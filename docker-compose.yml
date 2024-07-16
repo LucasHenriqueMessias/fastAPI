@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+  
+  nodeapi:
+    build: .
+    command: npm start
+    ports:
+      - "9001:9001"
+    volumes:
+      - .:/usr/app
+
+  postgres:
+    image: bitnami/postgresql:latest
+    ports: 
+      - "5432:5432"
+    env_file:
+      - .env
+    volumes:
+      - pool_postgres_data:/bitnami/postgresql
+
+  pgadmin4:
+    image: dpage/pgadmin4
+    env_file:
+      - .env
+    ports:
+     - "9002:80"
+
+volumes:
+  pool_postgres_data:

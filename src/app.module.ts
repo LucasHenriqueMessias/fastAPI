@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { config } from 'process';
 import { join } from 'path';
 import { LoginModule } from './login/login.module';
+import { TabLojaModule } from './tab_loja/tab_loja.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -25,6 +26,7 @@ import { LoginModule } from './login/login.module';
       }),
     }),
     LoginModule,
+    TabLojaModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -20,6 +20,24 @@ export class TabLoja {
 
     @Column({ type: 'text' })
         cpf_1: string;
+
+    @Column({ type: 'text'})
+        telefone_1: string;
+
+    @Column({ type: 'text'})
+        email_1: string;
+
+    @Column({ type: 'text', nullable: true})
+        linkedin_1: string;
+
+    @Column({ type: 'text', nullable: true})
+        instagram_1: string;
+
+    @Column({ type: 'text', nullable: true})
+        facebook_1: string;
+
+    @Column({ type: 'text', nullable: true})
+        tiktok_1: string;
     
     @Column({ type: 'text', nullable: true })
         nome_2: string;
@@ -27,6 +45,24 @@ export class TabLoja {
     @Column({ type: 'text', nullable: true })
         cpf_2: string;
 
+    @Column({ type: 'text', nullable: true })
+        telefone_2: string;
+
+    @Column({ type: 'text', nullable: true }) 
+        email_2: string;
+
+    @Column({ type: 'text', nullable: true }) 
+        linkedin_2: string;
+        
+    @Column({ type: 'text', nullable: true }) 
+        instagram_2: string;
+    
+    @Column({ type: 'text', nullable: true }) 
+        facebook_2: string;
+    
+    @Column({ type: 'text', nullable: true }) 
+        tiktok_2: string;
+        
     @Column({ type: 'text' })
         logradouro: string;
     
@@ -54,10 +90,10 @@ export class TabLoja {
     @Column({ type: 'float' })
         renda_liquida_atual: number;
         
-    @CreateDateColumn( {type: 'timestamptz'})
+    @CreateDateColumn({ type: 'timestamptz' })
         data_criacao: Date;
 
-    @UpdateDateColumn({type: 'timestamptz'})
+    @UpdateDateColumn({ type: 'timestamptz' })
         data_alteracao: Date;
 
     }

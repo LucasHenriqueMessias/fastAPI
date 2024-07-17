@@ -11,6 +11,9 @@ export class Login {
     @Column({ type: 'text' })
     hash: string;
 
+    @Column({ type: 'text'})
+    loja: string;
+    
     @Column({ type: 'boolean', default: true })
     active: boolean;
 }

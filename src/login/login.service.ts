@@ -25,14 +25,14 @@ export class LoginService {
     
   }
 
-  async findOne(id: number) {
+  async findOne(user: string) {
       return await this.loginRepository.findOne({
-        where: {id}
+        where: {user}
       });
   }
 
-  async update(id: number, updateLoginDto: UpdateLoginDto) {
-    const login = await this.findOne(id);
+  async update(user: string, updateLoginDto: UpdateLoginDto) {
+    const login = await this.findOne(user);
 
     if(!login){
       throw new NotFoundException();
@@ -43,8 +43,8 @@ export class LoginService {
     return await this.loginRepository.save(login);
   }
 
-  async remove(id: number) {
-   const login = await this.findOne(id);
+  async remove(user: string) {
+   const login = await this.findOne(user);
    if(!login){
     throw new NotFoundException();
    } 

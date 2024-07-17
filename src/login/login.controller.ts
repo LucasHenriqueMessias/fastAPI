@@ -19,18 +19,18 @@ export class LoginController {
     return this.loginService.findAll();
   }
 
-  @Get('get/:id')
-  findOne(@Param('id') id: string) {
-    return this.loginService.findOne(+id);
+  @Get('get/user/:user')
+  findOne(@Param('user') user: string) {
+    return this.loginService.findOne(user);
   }
 
-  @Patch('update/:id')
-  update(@Param('id') id: string, @Body() updateLoginDto: UpdateLoginDto) {
-    return this.loginService.update(+id, updateLoginDto);
+  @Patch('update/:user')
+  update(@Param('user') user: string, @Body() updateLoginDto: UpdateLoginDto) {
+    return this.loginService.update(user, updateLoginDto);
   }
 
-  @Delete('delete/:id')
-  remove(@Param('id') id: string) {
-    return this.loginService.remove(+id);
+  @Delete('delete/:user')
+  remove(@Param('user') user: string) {
+    return this.loginService.remove(user);
   }
 }

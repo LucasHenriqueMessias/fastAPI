@@ -7,6 +7,7 @@ import { config } from 'process';
 import { join } from 'path';
 import { LoginModule } from './login/login.module';
 import { TabLojaModule } from './tab_loja/tab_loja.module';
+import { TabTiposMovimentacaoModule } from './tab_tipos_movimentacao/tab_tipos_movimentacao.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -27,6 +28,7 @@ import { TabLojaModule } from './tab_loja/tab_loja.module';
     }),
     LoginModule,
     TabLojaModule,
+    TabTiposMovimentacaoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { TabLoja } from 'src/tab_loja/entities/tab_loja.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 @Entity({ name: 'tab_login' })
 export class Login {
     @PrimaryGeneratedColumn('increment')
@@ -11,8 +12,8 @@ export class Login {
     @Column({ type: 'text' })
     hash: string;
 
-    @Column({ type: 'text'})
-    loja: string;
+    @ManyToOne(() => TabLoja, (loja) => loja.id_loja) 
+    loja: TabLoja;
     
     @Column({ type: 'boolean', default: true })
     active: boolean;

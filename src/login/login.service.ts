@@ -21,13 +21,20 @@ export class LoginService {
   }
 
   async findAll() {
-    return await this.loginRepository.find();
+    return await this.loginRepository.find({
+      relations: { 
+        loja: true
+      }
+    });
     
   }
 
   async findOne(user: string) {
       return await this.loginRepository.findOne({
-        where: {user}
+        where: {user},
+        relations:{
+          loja: true
+        }
       });
   }
 

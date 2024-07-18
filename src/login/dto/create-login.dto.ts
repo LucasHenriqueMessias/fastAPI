@@ -1,3 +1,4 @@
+import { TabLoja } from "src/tab_loja/entities/tab_loja.entity";
 
 export class CreateLoginDto {
 
@@ -5,7 +6,7 @@ export class CreateLoginDto {
 user: string;
 salt: string;
 hash: string;
-loja: string;
+loja: TabLoja;
 active: boolean;
 
 }

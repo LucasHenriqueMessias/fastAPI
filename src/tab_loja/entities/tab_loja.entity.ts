@@ -1,10 +1,14 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Login } from "src/login/entities/login.entity";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity({name: 'tab_loja'})
 export class TabLoja {
     
     @PrimaryGeneratedColumn('increment')
-    id_loja: number
+    id_loja: number;
+
+    @OneToMany(() => Login, (login) => login.loja) 
+    login: Login[];
     
     @Column({ type: 'text' })
         razao_social: string;

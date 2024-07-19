@@ -8,6 +8,7 @@ import { join } from 'path';
 import { LoginModule } from './login/login.module';
 import { TabLojaModule } from './tab_loja/tab_loja.module';
 import { TabTiposMovimentacaoModule } from './tab_tipos_movimentacao/tab_tipos_movimentacao.module';
+import { TabFluxoCaixaModule } from './tab_fluxo_caixa/tab_fluxo_caixa.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -29,6 +30,7 @@ import { TabTiposMovimentacaoModule } from './tab_tipos_movimentacao/tab_tipos_m
     LoginModule,
     TabLojaModule,
     TabTiposMovimentacaoModule,
+    TabFluxoCaixaModule,
   ],
   controllers: [AppController],
   providers: [AppService],

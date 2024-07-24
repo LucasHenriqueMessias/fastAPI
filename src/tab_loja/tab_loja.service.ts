@@ -24,9 +24,9 @@ export class TabLojaService {
     return await this.TabLojaRepository.find();
   }
 
-  async findOne(cnpj_me: string) {
+  async findOne(cnpj: string) {
     return await this.TabLojaRepository.findOne({
-      where: {cnpj_me}
+      where: {cnpj}
     });
   }
 

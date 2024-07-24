@@ -1,103 +1,169 @@
 import { Login } from "src/login/entities/login.entity";
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-@Entity({name: 'tab_loja'})
+@Entity({ name: 'tab_loja' })
 export class TabLoja {
-    
+
     @PrimaryGeneratedColumn('increment')
     id_loja: number;
 
-    @OneToMany(() => Login, (login) => login.loja) 
+    @OneToMany(() => Login, (login) => login.loja)
     login: Login[];
-    
-    @Column({ type: 'text' })
-        razao_social: string;
-        
-    @Column({ type: 'text' })
-        nome_fantasia: string;
-    
-    @Column({type: 'text'})
-        cnpj_me: string;
-    
-    @Column({ type: 'text' })
-        nome_1: string;
 
     @Column({ type: 'text' })
-        cpf_1: string;
+    uf: string;
 
-    @Column({ type: 'text'})
-        telefone_1: string;
+    @Column({ type: 'int' })
+    cep: number;
 
-    @Column({ type: 'text'})
-        email_1: string;
-
-    @Column({ type: 'text', nullable: true})
-        linkedin_1: string;
-
-    @Column({ type: 'text', nullable: true})
-        instagram_1: string;
-
-    @Column({ type: 'text', nullable: true})
-        facebook_1: string;
-
-    @Column({ type: 'text', nullable: true})
-        tiktok_1: string;
-    
-    @Column({ type: 'text', nullable: true })
-        nome_2: string;
+    @Column({ type: 'text' })
+    cnpj: string;
 
     @Column({ type: 'text', nullable: true })
-        cpf_2: string;
+    pais: string;
 
     @Column({ type: 'text', nullable: true })
-        telefone_2: string;
+    email: string;
 
-    @Column({ type: 'text', nullable: true }) 
-        email_2: string;
+    @Column({ type: 'text' })
+    porte: string;
 
-    @Column({ type: 'text', nullable: true }) 
-        linkedin_2: string;
-        
-    @Column({ type: 'text', nullable: true }) 
-        instagram_2: string;
+    @Column({ type: 'text' })
+    bairro: string;
+
+    @Column({ type: 'text' })
+    numero: string;
+
+    @Column({ type: 'text' })
+    ddd_fax: string;
+
+    @Column({ type: 'text' })
+    municipio: string;
+
+    @Column({ type: 'text' })
+    logradouro: string;
+
+    @Column({ type: 'int' })
+    cnae_fiscal: number;
+
+    @Column({ type: 'int', nullable: true })
+    codigo_pais: number;
+
+    @Column({ type: 'text' })
+    complemento: string;
+
+    @Column({ type: 'int' })
+    codigo_porte: number;
+
+    @Column({ type: 'text' })
+    razao_social: string;
+
+    @Column({ type: 'text' })
+    nome_fantasia: string;
+
+    @Column({ type: 'float', nullable: true })
+    capital_social: number;
+
+    @Column({ type: 'text' })
+    ddd_telefone_1: string;
+
+    @Column({ type: 'text' })
+    ddd_telefone_2: string;
+
+    @Column({ type: 'bool' })
+    opcao_pelo_mei: boolean;
+
+    @Column({ type: 'text' })
+    descricao_porte: string;
+
+    @Column({ type: 'int' })
+    codigo_municipio: number;
+
+    @Column({ type: 'text' })
+    natureza_juridica: string;
+
+    @Column({ type: 'text' })
+    situacao_especial: string;
+
+    @Column({ type: 'bool' })
+    opcao_pelo_simples: boolean;
+
+    @Column({ type: 'int' })
+    situacao_cadastral?: number;
+
+    @Column({ type: 'timestamptz', nullable: true })
+    data_opcao_pelo_mei?: Date;
+
+    @Column({ type: 'timestamptz', nullable: true })
+    data_exclusao_do_mei?: Date;
+
+    @Column({ type: 'text' })
+    cnae_fiscal_descricao: string;
+
+    @Column({ type: 'int' })
+    codigo_municipio_ibge: number;
     
-    @Column({ type: 'text', nullable: true }) 
-        facebook_2: string;
-    
-    @Column({ type: 'text', nullable: true }) 
-        tiktok_2: string;
-        
-    @Column({ type: 'text' })
-        logradouro: string;
-    
-    @Column({ type: 'text' })
-        bairro: string;    
-    
-    @Column({ type: 'text' })
-        cidade: string;
+    @Column({ type: 'timestamptz' })
+    data_inicio_atividade: Date;
+
+    @Column({ type: 'timestamptz', nullable: true })
+    data_situacao_especial?: Date;
+
+    @Column({ type: 'timestamptz' })
+    data_opcao_pelo_simples: Date;
+
+    @Column({ type: 'timestamptz' })
+    data_situacao_cadastral: Date;
 
     @Column({ type: 'text' })
-        uf: string;
+    nome_cidade_no_exterior: string;
+
+    @Column({ type: 'int' })
+    codigo_natureza_juridica: number;
+
+    @Column({ type: 'timestamptz', nullable: true })
+    data_exclusao_do_simples: Date;
+
+    @Column({ type: 'int' })
+    motivo_situacao_cadastral: number;
 
     @Column({ type: 'text' })
-        cep: string;
+    ente_federativo_responsavel: string;
 
-    @Column({ type: 'float' })
-        renda_bruta_inicial: number;
+    @Column({ type: 'int' })
+    identificador_matriz_filial: number;
 
-    @Column({ type: 'float' })
-        renda_bruta_atual: number;
+    @Column({ type: 'int' })
+    qualificacao_do_responsavel: number;
 
-    @Column({ type: 'float' })
-        renda_liquida_inicial: number;
+    @Column({ type: 'text' })
+    descricao_situacao_cadastral: string;
 
-    @Column({ type: 'float' })
-        renda_liquida_atual: number;
-        
-    @CreateDateColumn({ type: 'timestamptz' })
-        data_criacao: Date;
+    @Column({ type: 'text' })
+    descricao_tipo_de_logradouro: string;
 
-    @UpdateDateColumn({ type: 'timestamptz' })
-        data_alteracao: Date;
+    @Column({ type: 'text' })
+    descricao_motivo_situacao_cadastral: string;
 
-    }
+    @Column({ type: 'text' })
+    descricao_identificador_matriz_filial: string;
+
+    @Column({ type: 'float', nullable: true })
+    renda_bruta_inicial: number;
+
+    @Column({ type: 'float', nullable: true })
+    renda_bruta_atual: number;
+
+    @Column({ type: 'float', nullable: true })
+    renda_liquida_inicial: number;
+
+    @Column({ type: 'float', nullable: true })
+    renda_liquida_atual: number;
+
+    @CreateDateColumn({ type: 'timestamptz', nullable: true })
+    data_criacao: Date;
+
+    @UpdateDateColumn({ type: 'timestamptz', nullable: true })
+    data_alteracao: Date;
+
+}

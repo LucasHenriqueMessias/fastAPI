@@ -1,3 +1,5 @@
+import { TabCnaeSecundario } from "src/tab_cnae_secundario/entities/tab_cnae_secundario.entity";
+
 export class CreateTabLojaDto {
 
     uf: string;
@@ -52,5 +54,6 @@ export class CreateTabLojaDto {
     renda_liquida_atual?: number;
     data_criacao?: Date;
     data_alteracao?: Date;
+    cnae_secundario: TabCnaeSecundario;
     
 }

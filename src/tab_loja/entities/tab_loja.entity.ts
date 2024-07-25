@@ -1,5 +1,6 @@
 import { Login } from "src/login/entities/login.entity";
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { TabCnaeSecundario } from "src/tab_cnae_secundario/entities/tab_cnae_secundario.entity";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity({ name: 'tab_loja' })
 export class TabLoja {
@@ -165,5 +166,7 @@ export class TabLoja {
 
     @UpdateDateColumn({ type: 'timestamptz', nullable: true })
     data_alteracao: Date;
+
+
 
 }

@@ -4,7 +4,6 @@ import { UpdateLoginDto } from './dto/update-login.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Login } from './entities/login.entity'
 import { Repository } from 'typeorm';
-import { log } from 'console';
 @Injectable()
 export class LoginService {
 

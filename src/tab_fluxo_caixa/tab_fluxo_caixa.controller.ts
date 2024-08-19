@@ -22,6 +22,11 @@ export class TabFluxoCaixaController {
     return this.tabFluxoCaixaService.findOne(+id);
   }
 
+  @Get('classificacao/:Categoria')
+  findAllByClassif(@Param('Categoria') Categoria: string) {
+    return this.tabFluxoCaixaService.findAllByClassif(Categoria);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTabFluxoCaixaDto: UpdateTabFluxoCaixaDto) {
     return this.tabFluxoCaixaService.update(+id, updateTabFluxoCaixaDto);

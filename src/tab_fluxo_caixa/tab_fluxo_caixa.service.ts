@@ -29,6 +29,11 @@ export class TabFluxoCaixaService {
       where: {id}
     });
   }
+  async findAllByClassif(Categoria: string) {
+    return await this.TabFluxoCaixaRepository.find({
+      where: {Categoria}
+    });
+  }
 
  async update(id: number, updateTabFluxoCaixaDto: UpdateTabFluxoCaixaDto) {
     const fluxo = await this.findOne(id);

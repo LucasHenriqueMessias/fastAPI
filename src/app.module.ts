@@ -11,6 +11,10 @@ import { TabTiposMovimentacaoModule } from './tab_tipos_movimentacao/tab_tipos_m
 import { TabFluxoCaixaModule } from './tab_fluxo_caixa/tab_fluxo_caixa.module';
 import { TabCnaeSecundarioModule } from './tab_cnae_secundario/tab_cnae_secundario.module';
 import { TabSociosModule } from './tab_socios/tab_socios.module';
+import { TabConsultorComercialModule } from './tab_consultor_comercial/tab_consultor_comercial.module';
+import { TabRegimeTributarioModule } from './tab_regime_tributario/tab_regime_tributario.module';
+import { TabDreModule } from './tab_dre/tab_dre.module';
+import { TabReuniaoModule } from './tab_reuniao/tab_reuniao.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -35,6 +39,10 @@ import { TabSociosModule } from './tab_socios/tab_socios.module';
     TabFluxoCaixaModule,
     TabCnaeSecundarioModule,
     TabSociosModule,
+    TabConsultorComercialModule,
+    TabRegimeTributarioModule,
+    TabDreModule,
+    TabReuniaoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

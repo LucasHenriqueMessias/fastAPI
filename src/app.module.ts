@@ -15,6 +15,7 @@ import { TabConsultorComercialModule } from './tab_consultor_comercial/tab_consu
 import { TabRegimeTributarioModule } from './tab_regime_tributario/tab_regime_tributario.module';
 import { TabDreModule } from './tab_dre/tab_dre.module';
 import { TabReuniaoModule } from './tab_reuniao/tab_reuniao.module';
+import { TabConsultorFinanceiroModule } from './tab_consultor_financeiro/tab_consultor_financeiro.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -43,6 +44,7 @@ import { TabReuniaoModule } from './tab_reuniao/tab_reuniao.module';
     TabRegimeTributarioModule,
     TabDreModule,
     TabReuniaoModule,
+    TabConsultorFinanceiroModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -17,18 +17,18 @@ export class TabDreController {
     return this.tabDreService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.tabDreService.findOne(+id);
+  @Get(':Data/:Cliente')
+  findOne(@Param('Data')Data: Date, @Param('Cliente')Cliente: string) {
+    return this.tabDreService.findAllByDate(Data, Cliente);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTabDreDto: UpdateTabDreDto) {
-    return this.tabDreService.update(+id, updateTabDreDto);
+  @Patch(':Data/:Cliente/:Descricao')
+  update(@Param('Data') Data: Date, @Param('Cliente')Cliente: string, @Param('Descricao')Descricao: string, updateTabDreDto: UpdateTabDreDto) {
+    return this.tabDreService.update(Data, Cliente, Descricao, updateTabDreDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.tabDreService.remove(+id);
+  @Delete(':Data/:Cliente/:Descricao')
+  remove(@Param('Data') Data: Date, @Param('Cliente')Cliente: string, @Param('Descricao')Descricao: string) {
+    return this.tabDreService.remove(Data, Cliente, Descricao);
   }
 }

@@ -1,26 +1,63 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTabDreDto } from './dto/create-tab_dre.dto';
 import { UpdateTabDreDto } from './dto/update-tab_dre.dto';
+import { TabDre } from './entities/tab_dre.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class TabDreService {
-  create(createTabDreDto: CreateTabDreDto) {
-    return 'This action adds a new tabDre';
+
+  constructor(
+    @InjectRepository(TabDre)
+    private readonly TabDreRepository:
+    Repository<TabDre>){
+
+    }
+
+
+  async create(createTabDreDto: CreateTabDreDto) {
+    const dre = this.TabDreRepository.create(createTabDreDto)
+    return await this.TabDreRepository.save(dre);
   }
 
-  findAll() {
-    return `This action returns all tabDre`;
+  async findAll() {
+    return await this.TabDreRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tabDre`;
+  //data && cnpj 
+  async findAllByDate(Data: Date, Cliente: string) {
+    return await this.TabDreRepository.find({where: {Data} && {Cliente}});
   }
 
-  update(id: number, updateTabDreDto: UpdateTabDreDto) {
-    return `This action updates a #${id} tabDre`;
+
+
+
+  //Necessário para a utilização do update e remove
+  //data && cnpj && descricao
+  async findOne(Data: Date, Cliente: string, Descricao: string){
+    return await this.TabDreRepository.findOne({where: {Data} && {Cliente} && {Descricao} });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} tabDre`;
+  //data && cnpj && descricao
+  async update(Data: Date, Cliente: string, Descricao: string, updateTabDreDto: UpdateTabDreDto) {
+
+    const dre = await this.findOne(Data, Cliente, Descricao);
+    if(!dre){
+      throw new NotFoundException();
+    }
+    Object.assign(dre, updateTabDreDto);
+    return await this.TabDreRepository.save(dre);
+  }
+
+  //data && cnpj && descricao
+  async remove(Data: Date, Cliente: string, Descricao: string) {
+
+    const dre = await this.findOne(Data, Cliente, Descricao);
+    if(!dre){
+      throw new NotFoundException();
+    }
+    return await this.TabDreRepository.remove(dre);
+
   }
 }

@@ -35,14 +35,14 @@ export class TabDreService {
 
   //Necessário para a utilização do update e remove
   //data && cnpj && descricao
-  async findOne(Data: Date, Cliente: string, Descricao: string){
-    return await this.TabDreRepository.findOne({where: {Data} && {Cliente} && {Descricao} });
+  async findOne(id: number){
+    return await this.TabDreRepository.findOne({where: {id} });
   }
 
   //data && cnpj && descricao
-  async update(Data: Date, Cliente: string, Descricao: string, updateTabDreDto: UpdateTabDreDto) {
+  async update(id: number, updateTabDreDto: UpdateTabDreDto) {
 
-    const dre = await this.findOne(Data, Cliente, Descricao);
+    const dre = await this.findOne(id);
     if(!dre){
       throw new NotFoundException();
     }
@@ -51,9 +51,9 @@ export class TabDreService {
   }
 
   //data && cnpj && descricao
-  async remove(Data: Date, Cliente: string, Descricao: string) {
+  async remove(id: number) {
 
-    const dre = await this.findOne(Data, Cliente, Descricao);
+    const dre = await this.findOne(id);
     if(!dre){
       throw new NotFoundException();
     }

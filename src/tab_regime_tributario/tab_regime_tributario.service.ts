@@ -1,26 +1,55 @@
-import { Injectable } from '@nestjs/common';
+/*
+author: Lucas Henrique Messias Gonçalves
+Date: 23.08.24
+
+*/
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTabRegimeTributarioDto } from './dto/create-tab_regime_tributario.dto';
 import { UpdateTabRegimeTributarioDto } from './dto/update-tab_regime_tributario.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { TabRegimeTributario } from './entities/tab_regime_tributario.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class TabRegimeTributarioService {
-  create(createTabRegimeTributarioDto: CreateTabRegimeTributarioDto) {
-    return 'This action adds a new tabRegimeTributario';
+
+    constructor(
+      @InjectRepository(TabRegimeTributario)
+      private readonly TabRegimeRepository:
+      Repository<TabRegimeTributario>){
+  
+      }
+
+  async create(createTabRegimeTributarioDto: CreateTabRegimeTributarioDto) {
+    const regime = this.TabRegimeRepository.create(createTabRegimeTributarioDto)
+    return await this.TabRegimeRepository.save(regime);
   }
 
-  findAll() {
-    return `This action returns all tabRegimeTributario`;
+  async findAll() {
+    return await this.TabRegimeRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tabRegimeTributario`;
+  async findOne(id: number) {
+    return await this.TabRegimeRepository.findOne({where: {id}});
   }
 
-  update(id: number, updateTabRegimeTributarioDto: UpdateTabRegimeTributarioDto) {
-    return `This action updates a #${id} tabRegimeTributario`;
+  async update(id: number, updateTabRegimeTributarioDto: UpdateTabRegimeTributarioDto) {
+    
+    const regime = await this.findOne(id);
+    if(!regime){
+      throw new NotFoundException();
+    }
+    Object.assign(regime, updateTabRegimeTributarioDto);
+
+    return await this.TabRegimeRepository.save(regime);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} tabRegimeTributario`;
+  async remove(id: number) {
+    const regime = await this.findOne(id);
+    if (!regime){
+      throw new NotFoundException();
+    }
+
+    return await this.TabRegimeRepository.remove(regime);
   }
 }

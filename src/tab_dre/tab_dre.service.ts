@@ -1,3 +1,9 @@
+/*
+author: Lucas Henrique Messias Gonçalves
+Date: 22.08.24
+
+*/
+
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTabDreDto } from './dto/create-tab_dre.dto';
 import { UpdateTabDreDto } from './dto/update-tab_dre.dto';

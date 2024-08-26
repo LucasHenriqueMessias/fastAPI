@@ -1,4 +1,4 @@
-import { Login } from "src/login/entities/login.entity";
+import { Login } from "src/tab_login/entities/login.entity";
 import { TabCnaeSecundario } from "src/tab_cnae_secundario/entities/tab_cnae_secundario.entity";
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 

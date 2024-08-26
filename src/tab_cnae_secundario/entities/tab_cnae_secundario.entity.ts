@@ -1,4 +1,3 @@
-import { TabLoja } from "src/tab_loja/entities/tab_loja.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: 'tab_cnae_secundario'})

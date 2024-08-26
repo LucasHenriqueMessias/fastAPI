@@ -1,4 +1,4 @@
-import { TabLoja } from 'src/tab_loja/entities/tab_loja.entity';
+import { TabLoja } from 'src/tab_cliente/entities/tab_loja.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 @Entity({ name: 'tab_login' })
 export class Login {

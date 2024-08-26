@@ -19,5 +19,34 @@ export class TabConsultorComercial {
     @Column({ type: 'int' })
     reunioes_mes: number;
     @Column({ type: 'float' })
-    meta_mes: number;
+    meta_reunioes_mes: number;
+    @Column({type: 'integer'})
+    lista: number;
+    @Column({type: 'integer'})
+    Contatos: number;
+    @Column({type: 'integer'})
+    propostas: number;
+    @Column({type: 'float'})
+    valor_proposta: number;
+    @Column({type: 'integer'})
+    contratos_fechados: number;
+    @Column({type: 'float'})
+    meta_ideal: number;
+    @Column({type: 'float'})
+    meta_realizada: number;
+    @Column({type: 'float'})
+    porcentagem_meta_atingida: number;
+    @Column({type: 'int'})
+    agendadas_lead: number;
+    @Column({type: 'int'})
+    fechamento_lead: number;
+    @Column({type: 'int'})
+    realizadas_lead: number;
+    @Column({type: 'int'})
+    agendadas_pp: number;
+    @Column({type: 'int'})
+    fechamento_pp: number;
+    @Column({type: 'int'})
+    realizadas_pp: number;
+    
 }

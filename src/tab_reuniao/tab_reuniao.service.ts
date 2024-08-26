@@ -1,26 +1,45 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTabReuniaoDto } from './dto/create-tab_reuniao.dto';
 import { UpdateTabReuniaoDto } from './dto/update-tab_reuniao.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { TabReuniao } from './entities/tab_reuniao.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class TabReuniaoService {
-  create(createTabReuniaoDto: CreateTabReuniaoDto) {
-    return 'This action adds a new tabReuniao';
+  constructor(
+    @InjectRepository(TabReuniao)
+    private readonly tabReuniaoRepository:
+    Repository<TabReuniao>){}
+  
+
+  async create(createTabReuniaoDto: CreateTabReuniaoDto) {
+    const reuniao = this.tabReuniaoRepository.create(createTabReuniaoDto)
+    return await this.tabReuniaoRepository.save(reuniao);
   }
 
-  findAll() {
-    return `This action returns all tabReuniao`;
+  async findAll() {
+    return await this.tabReuniaoRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tabReuniao`;
+  async findOne(id: number) {
+    return await this.tabReuniaoRepository.findOne({where: {id}});
   }
 
-  update(id: number, updateTabReuniaoDto: UpdateTabReuniaoDto) {
-    return `This action updates a #${id} tabReuniao`;
+  async update(id: number, updateTabReuniaoDto: UpdateTabReuniaoDto) {
+    const reuniao = await this.findOne(id)
+    if(!reuniao){
+      throw new NotFoundException();
+    }
+    Object.assign(reuniao, updateTabReuniaoDto);
+    return await this.tabReuniaoRepository.save(reuniao);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} tabReuniao`;
+  async remove(id: number) {
+    const reuniao = await this.findOne(id);
+    if(!reuniao){
+      throw new NotFoundException();
+    }
+    return await this.tabReuniaoRepository.remove(reuniao);
   }
 }

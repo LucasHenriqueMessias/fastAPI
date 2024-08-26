@@ -18,17 +18,17 @@ export class TabConsultorComercialController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.tabConsultorComercialService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.tabConsultorComercialService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTabConsultorComercialDto: UpdateTabConsultorComercialDto) {
-    return this.tabConsultorComercialService.update(+id, updateTabConsultorComercialDto);
+  update(@Param('id') id: number, @Body() updateTabConsultorComercialDto: UpdateTabConsultorComercialDto) {
+    return this.tabConsultorComercialService.update(id, updateTabConsultorComercialDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.tabConsultorComercialService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.tabConsultorComercialService.remove(id);
   }
 }

@@ -22,8 +22,5 @@ export class CreateTabConsultorComercialDto {
     agendadas_pp: number;
     fechamento_pp: number;
     realizadas_pp: number;
-    
-    
-
 
 }

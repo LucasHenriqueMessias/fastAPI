@@ -16,5 +16,10 @@ export class CreateTabSocioDto {
     codigo_qualificacao_socio: number;
     qualificacao_representante_legal: string;
     codigo_qualificacao_representante_legal: number;
+    disc: string;
+    serdip: string;
+    eneagrama: string;
+    hobbies: string;
+    relatorio_prospeccao: string;
 
 }

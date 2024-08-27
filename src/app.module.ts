@@ -16,6 +16,11 @@ import { TabRegimeTributarioModule } from './tab_regime_tributario/tab_regime_tr
 import { TabDreModule } from './tab_dre/tab_dre.module';
 import { TabReuniaoModule } from './tab_reuniao/tab_reuniao.module';
 import { TabConsultorFinanceiroModule } from './tab_consultor_financeiro/tab_consultor_financeiro.module';
+import { TabFastModule } from './tab_fast/tab_fast.module';
+import { TabProspeccaoModule } from './tab_prospeccao/tab_prospeccao.module';
+import { TabDoresClienteModule } from './tab_dores_cliente/tab_dores_cliente.module';
+import { TabAnalistaFinanceiroModule } from './tab_analista_financeiro/tab_analista_financeiro.module';
+import { TabFerramentasModule } from './tab_ferramentas/tab_ferramentas.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -45,6 +50,11 @@ import { TabConsultorFinanceiroModule } from './tab_consultor_financeiro/tab_con
     TabDreModule,
     TabReuniaoModule,
     TabConsultorFinanceiroModule,
+    TabFastModule,
+    TabProspeccaoModule,
+    TabDoresClienteModule,
+    TabAnalistaFinanceiroModule,
+    TabFerramentasModule,
   ],
   controllers: [AppController],
   providers: [AppService],

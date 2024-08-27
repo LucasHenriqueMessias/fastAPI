@@ -50,5 +50,20 @@ export class TabSocio {
     @Column({type: 'int'})
     codigo_qualificacao_representante_legal: number;
 
+    @Column({type: 'text', nullable: true})
+    disc: string;
+
+    @Column({type: 'text' , nullable: true})
+    serdip: string;
+
+    @Column({type: 'text', nullable: true})
+    eneagrama: string;
+
+    @Column({type: 'text', nullable: true})
+    hobbies: string;
+
+    @Column({type: 'text',  nullable: true})
+    relatorio_prospeccao: string;
+
 
 }

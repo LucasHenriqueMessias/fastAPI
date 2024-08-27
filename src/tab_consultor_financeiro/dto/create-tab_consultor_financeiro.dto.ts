@@ -1,5 +1,6 @@
 export class CreateTabConsultorFinanceiroDto {
 
+    id: number;
     usuario: string;
     nome_consultor_financeiro: string;
     email: string;
@@ -14,4 +15,6 @@ export class CreateTabConsultorFinanceiroDto {
     data_atualizacao: Date;
     usuario_criacao: string;
     usuario_atualizacao: string;
+    taxa_reunioes_realizaddas: number;
+    indice_cancelamento: number;
 }

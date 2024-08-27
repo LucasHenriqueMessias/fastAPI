@@ -55,5 +55,9 @@ export class CreateTabLojaDto {
     data_criacao?: Date;
     data_alteracao?: Date;
     cnae_secundario: TabCnaeSecundario;
+    numero_funcionarios: number;
+    valor_faturamento: number;
+    valor_faturamento_inicial: number;
+    ponto_apoio: string;
     
 }

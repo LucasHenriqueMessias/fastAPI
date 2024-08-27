@@ -5,6 +5,7 @@ export class CreateLoginDto {
     user: string;
     salt: string;
     hash: string;
+    loja: TabLoja;
     active: boolean;
 
 }

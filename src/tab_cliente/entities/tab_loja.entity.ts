@@ -8,9 +8,6 @@ export class TabLoja {
     @PrimaryGeneratedColumn('increment')
     id_loja: number;
 
-    @OneToMany(() => Login, (login) => login.loja)
-    login: Login[];
-
     @Column({ type: 'text' })
     uf: string;
 
@@ -167,6 +164,8 @@ export class TabLoja {
     @UpdateDateColumn({ type: 'timestamptz', nullable: true })
     data_alteracao: Date;
 
+    @Column({ type: 'int', default: 0 })
+    numero_funcionarios: number;
 
 
 }

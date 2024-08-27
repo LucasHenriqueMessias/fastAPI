@@ -11,9 +11,6 @@ export class Login {
 
     @Column({ type: 'text' })
     hash: string;
-
-    @ManyToOne(() => TabLoja, (loja) => loja.id_loja) 
-    loja: TabLoja;
     
     @Column({ type: 'boolean', default: true })
     active: boolean;

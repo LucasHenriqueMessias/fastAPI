@@ -10,5 +10,6 @@ export class CreateTabReuniaoDto {
     data_marcada: Date;
     data_realizada: Date;
     data_criacao: Date;
+    caminho: string;
 
 }

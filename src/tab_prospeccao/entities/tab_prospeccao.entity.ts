@@ -1,1 +1,46 @@
-export class TabProspeccao {}
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+
+@Entity({ name: 'tab_prospeccao' })
+export class TabProspeccao {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column({ type: 'date' })
+  data: Date;
+
+  @Column({ type: 'varchar', length: 255 })
+  consultor_comercial: string;
+
+  @Column({ type: 'varchar', length: 255 })
+  empresa: string;
+
+  @Column({ type: 'varchar', length: 20 })
+  cnpj_cpf: string;
+
+  @Column({ type: 'varchar', length: 255 })
+  fundacao: string;
+
+  @Column({ type: 'varchar', length: 255 })
+  localizacao: string;
+
+  @Column({ type: 'varchar', length: 20 })
+  telefone: string;
+
+  @Column({ type: 'varchar', length: 255 })
+  responsavel: string;
+
+  @Column({ type: 'varchar', length: 255 })
+  email: string;
+
+  @Column({ type: 'boolean' })
+  indicacao: boolean;
+
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  indicacao_nome: string;
+
+  @Column({ type: 'boolean' })
+  bni: boolean;
+
+  @Column({ type: 'varchar', length: 255, nullable: true })
+  parceiro_bni_grupo: string;
+}

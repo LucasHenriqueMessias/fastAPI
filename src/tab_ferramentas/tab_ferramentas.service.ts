@@ -1,26 +1,36 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateTabFerramentaDto } from './dto/create-tab_ferramenta.dto';
 import { UpdateTabFerramentaDto } from './dto/update-tab_ferramenta.dto';
+import { TabFerramenta } from './entities/tab_ferramenta.entity';
 
 @Injectable()
 export class TabFerramentasService {
-  create(createTabFerramentaDto: CreateTabFerramentaDto) {
-    return 'This action adds a new tabFerramenta';
+  constructor(
+    @InjectRepository(TabFerramenta)
+    private readonly tabFerramentaRepository: Repository<TabFerramenta>,
+  ) {}
+
+  async create(createTabFerramentaDto: CreateTabFerramentaDto): Promise<TabFerramenta> {
+    const tabFerramenta = this.tabFerramentaRepository.create(createTabFerramentaDto);
+    return this.tabFerramentaRepository.save(tabFerramenta);
   }
 
-  findAll() {
-    return `This action returns all tabFerramentas`;
+  async findAll(): Promise<TabFerramenta[]> {
+    return this.tabFerramentaRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tabFerramenta`;
+  async findOne(id: number): Promise<TabFerramenta> {
+    return this.tabFerramentaRepository.findOne({ where: { id } });
   }
 
-  update(id: number, updateTabFerramentaDto: UpdateTabFerramentaDto) {
-    return `This action updates a #${id} tabFerramenta`;
+  async update(id: number, updateTabFerramentaDto: UpdateTabFerramentaDto): Promise<TabFerramenta> {
+    await this.tabFerramentaRepository.update(id, updateTabFerramentaDto);
+    return this.tabFerramentaRepository.findOne({ where: { id } });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} tabFerramenta`;
+  async remove(id: number): Promise<void> {
+    await this.tabFerramentaRepository.delete(id);
   }
 }

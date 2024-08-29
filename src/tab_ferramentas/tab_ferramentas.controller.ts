@@ -18,17 +18,17 @@ export class TabFerramentasController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.tabFerramentasService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTabFerramentaDto: UpdateTabFerramentaDto) {
+  update(@Param('id') id: number, @Body() updateTabFerramentaDto: UpdateTabFerramentaDto) {
     return this.tabFerramentasService.update(+id, updateTabFerramentaDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.tabFerramentasService.remove(+id);
   }
 }

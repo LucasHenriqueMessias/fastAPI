@@ -22,5 +22,7 @@ export class TabReuniao {
     data_realizada: Date;
     @Column({type: 'timestamptz'})
     data_criacao: Date;
+    @Column({type: 'text'})
+    caminho: string;
 
 }

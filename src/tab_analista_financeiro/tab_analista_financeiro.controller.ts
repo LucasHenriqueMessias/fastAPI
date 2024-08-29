@@ -18,17 +18,17 @@ export class TabAnalistaFinanceiroController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.tabAnalistaFinanceiroService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.tabAnalistaFinanceiroService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTabAnalistaFinanceiroDto: UpdateTabAnalistaFinanceiroDto) {
-    return this.tabAnalistaFinanceiroService.update(+id, updateTabAnalistaFinanceiroDto);
+  update(@Param('id') id: number, @Body() updateTabAnalistaFinanceiroDto: UpdateTabAnalistaFinanceiroDto) {
+    return this.tabAnalistaFinanceiroService.update(id, updateTabAnalistaFinanceiroDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.tabAnalistaFinanceiroService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.tabAnalistaFinanceiroService.remove(id);
   }
 }

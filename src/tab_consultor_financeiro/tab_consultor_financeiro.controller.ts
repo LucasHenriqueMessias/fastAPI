@@ -18,17 +18,17 @@ export class TabConsultorFinanceiroController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.tabConsultorFinanceiroService.findOne(+id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTabConsultorFinanceiroDto: UpdateTabConsultorFinanceiroDto) {
+  update(@Param('id') id: number, @Body() updateTabConsultorFinanceiroDto: UpdateTabConsultorFinanceiroDto) {
     return this.tabConsultorFinanceiroService.update(+id, updateTabConsultorFinanceiroDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.tabConsultorFinanceiroService.remove(+id);
   }
 }

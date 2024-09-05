@@ -1,26 +1,36 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateTabConsultorFinanceiroDto } from './dto/create-tab_consultor_financeiro.dto';
 import { UpdateTabConsultorFinanceiroDto } from './dto/update-tab_consultor_financeiro.dto';
+import { TabConsultorFinanceiro } from './entities/tab_consultor_financeiro.entity';
 
 @Injectable()
 export class TabConsultorFinanceiroService {
-  create(createTabConsultorFinanceiroDto: CreateTabConsultorFinanceiroDto) {
-    return 'This action adds a new tabConsultorFinanceiro';
+  constructor(
+    @InjectRepository(TabConsultorFinanceiro)
+    private readonly tabConsultorFinanceiroRepository: Repository<TabConsultorFinanceiro>,
+  ) {}
+
+  async create(createTabConsultorFinanceiroDto: CreateTabConsultorFinanceiroDto): Promise<TabConsultorFinanceiro> {
+    const tabConsultorFinanceiro = this.tabConsultorFinanceiroRepository.create(createTabConsultorFinanceiroDto);
+    return this.tabConsultorFinanceiroRepository.save(tabConsultorFinanceiro);
   }
 
-  findAll() {
-    return `This action returns all tabConsultorFinanceiro`;
+  async findAll(): Promise<TabConsultorFinanceiro[]> {
+    return this.tabConsultorFinanceiroRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} tabConsultorFinanceiro`;
+  async findOne(id: number): Promise<TabConsultorFinanceiro> {
+    return this.tabConsultorFinanceiroRepository.findOne({where: {id}});
   }
 
-  update(id: number, updateTabConsultorFinanceiroDto: UpdateTabConsultorFinanceiroDto) {
-    return `This action updates a #${id} tabConsultorFinanceiro`;
+  async update(id: number, updateTabConsultorFinanceiroDto: UpdateTabConsultorFinanceiroDto): Promise<TabConsultorFinanceiro> {
+    await this.tabConsultorFinanceiroRepository.update(id, updateTabConsultorFinanceiroDto);
+    return this.tabConsultorFinanceiroRepository.findOne({where: {id}});
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} tabConsultorFinanceiro`;
+  async remove(id: number): Promise<void> {
+    await this.tabConsultorFinanceiroRepository.delete(id);
   }
 }

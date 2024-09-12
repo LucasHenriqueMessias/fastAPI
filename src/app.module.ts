@@ -21,6 +21,7 @@ import { TabProspeccaoModule } from './tab_prospeccao/tab_prospeccao.module';
 import { TabDoresClienteModule } from './tab_dores_cliente/tab_dores_cliente.module';
 import { TabAnalistaFinanceiroModule } from './tab_analista_financeiro/tab_analista_financeiro.module';
 import { TabFerramentasModule } from './tab_ferramentas/tab_ferramentas.module';
+import { TabSucessoClienteModule } from './tab_sucesso_cliente/tab_sucesso_cliente.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -55,6 +56,7 @@ import { TabFerramentasModule } from './tab_ferramentas/tab_ferramentas.module';
     TabDoresClienteModule,
     TabAnalistaFinanceiroModule,
     TabFerramentasModule,
+    TabSucessoClienteModule,
   ],
   controllers: [AppController],
   providers: [AppService],

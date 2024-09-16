@@ -22,6 +22,7 @@ import { TabDoresClienteModule } from './tab_dores_cliente/tab_dores_cliente.mod
 import { TabAnalistaFinanceiroModule } from './tab_analista_financeiro/tab_analista_financeiro.module';
 import { TabFerramentasModule } from './tab_ferramentas/tab_ferramentas.module';
 import { TabSucessoClienteModule } from './tab_sucesso_cliente/tab_sucesso_cliente.module';
+import { TabUploadModule } from './tab_upload/tab_upload.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -57,6 +58,7 @@ import { TabSucessoClienteModule } from './tab_sucesso_cliente/tab_sucesso_clien
     TabAnalistaFinanceiroModule,
     TabFerramentasModule,
     TabSucessoClienteModule,
+    TabUploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],

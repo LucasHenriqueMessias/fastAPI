@@ -34,6 +34,7 @@ export class TabUploadController {
     return this.tabUploadService.saveFile(file, createTabUploadDto);
   }
 
+  //get all
   @Get('pdf')
   async listFiles() {
     const files = await this.tabUploadService.findAll();
@@ -42,9 +43,11 @@ export class TabUploadController {
       name: file.name,
       description: file.description,
       pdfPath: file.pdfPath,
+      tipoArquivo: file.tipoArquivo,
     }));
   }
 
+  //get file by id
   @Get('pdf/:id')
   async getFile(@Param('id') id: string, @Res() res: Response) {
     const tabUpload = await this.tabUploadService.findOne(+id);
@@ -53,6 +56,19 @@ export class TabUploadController {
     }
     const filePath = join(process.cwd(), tabUpload.pdfPath);
     return res.sendFile(filePath);
+  }
+
+
+  //get all files by tipoArquivo
+  @Get('pdf/tipo/:tipoArquivo')
+  async listFilesByTipo(@Param('tipoArquivo') tipoArquivo: string) {
+    const files = await this.tabUploadService.findByTipo(tipoArquivo);
+    return files.map(file => ({
+      id: file.id,
+      name: file.name,
+      description: file.description,
+      pdfPath: file.pdfPath,
+    }));
   }
 
   @Delete('pdf/:id')

@@ -52,4 +52,8 @@ export class TabUploadService {
     });
     return this.tabUploadRepository.save(tabUpload);
   }
+
+  async findByTipo(tipoArquivo: string): Promise<TabUpload[]> {
+    return this.tabUploadRepository.find({ where: { tipoArquivo } });
+  }
 }

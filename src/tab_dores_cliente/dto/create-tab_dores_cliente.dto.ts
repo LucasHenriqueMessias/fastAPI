@@ -1,6 +1,8 @@
 export class CreateTabDoresClienteDto {
 
     id: number;
+    cliente: string;
+    consultor: string;
     ausencia_salario: number;
     desconhecimento_lucratividade: number;
     precos_informal: number;
@@ -16,6 +18,4 @@ export class CreateTabDoresClienteDto {
     ausencia_capital: number;
     utilizacao_linhas_credito: number;
     suporte_contabil_inadequado: number;
-
-
 }

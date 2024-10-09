@@ -2,7 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: "Tab_Agenda"})
 export class TabReuniao {
-@PrimaryGeneratedColumn('increment')
+    @PrimaryGeneratedColumn('increment')
     id: number;
     @Column({type: 'text'})
     user: string;
@@ -24,5 +24,7 @@ export class TabReuniao {
     data_criacao: Date;
     @Column({type: 'text'})
     caminho: string;
+    @Column({type: 'float'})
+    nps_reuniao: number; 
 
 }

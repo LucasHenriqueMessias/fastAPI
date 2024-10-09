@@ -5,6 +5,12 @@ export class TabDoresCliente {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column()
+    cliente: string;
+
+    @Column()
+    consultor: string;
+
     @Column({ type: 'int' })
     ausencia_salario: number;
 

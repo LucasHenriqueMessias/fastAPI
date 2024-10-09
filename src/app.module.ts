@@ -23,6 +23,12 @@ import { TabAnalistaFinanceiroModule } from './tab_analista_financeiro/tab_anali
 import { TabFerramentasModule } from './tab_ferramentas/tab_ferramentas.module';
 import { TabSucessoClienteModule } from './tab_sucesso_cliente/tab_sucesso_cliente.module';
 import { TabUploadModule } from './tab_upload/tab_upload.module';
+import { TabRoiModule } from './tab_roi/tab_roi.module';
+import { TabParceriaFastModule } from './tab_parceria_fast/tab_parceria_fast.module';
+import { TabFotografiaClienteModule } from './tab_fotografia_cliente/tab_fotografia_cliente.module';
+import { TabContratoModule } from './tab_contrato/tab_contrato.module';
+import { TabIndicacaoClienteModule } from './tab_indicacao_cliente/tab_indicacao_cliente.module';
+import { TabSinalAmareloModule } from './tab_sinal_amarelo/tab_sinal_amarelo.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -59,6 +65,13 @@ import { TabUploadModule } from './tab_upload/tab_upload.module';
     TabFerramentasModule,
     TabSucessoClienteModule,
     TabUploadModule,
+    TabRoiModule,
+    TabParceriaFastModule,
+    TabFotografiaClienteModule,
+    TabContratoModule,
+    TabIndicacaoClienteModule,
+    TabSinalAmareloModule,
+
   ],
   controllers: [AppController],
   providers: [AppService],

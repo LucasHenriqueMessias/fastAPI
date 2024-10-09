@@ -10,9 +10,9 @@ export class CreateTabProspeccaoDto {
     telefone: string;
     responsavel: string;
     email: string;
-    indicacao: boolean;
-    indicacao_nome: string;
-    bni: boolean;
-    parceiro_bni_grupo: string;
+    indicacao: boolean; //se foi indicado, 1, senão, 0
+    indicacao_nome: string; //nome de quem indicou
+    bni: boolean; //se for indicação por bni, senão, 0
+    parceiro_bni_grupo: string; //grupo do bni 
 
 }

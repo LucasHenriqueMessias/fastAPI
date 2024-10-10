@@ -23,12 +23,12 @@ export class TabIndicacaoClienteController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: number, @Body() updateTabIndicacaoClienteDto: UpdateTabIndicacaoClienteDto) {
+  update(@Param('id') id: string, @Body() updateTabIndicacaoClienteDto: UpdateTabIndicacaoClienteDto) {
     return this.tabIndicacaoClienteService.update(+id, updateTabIndicacaoClienteDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: number) {
+  remove(@Param('id') id: string) {
     return this.tabIndicacaoClienteService.remove(+id);
   }
 }

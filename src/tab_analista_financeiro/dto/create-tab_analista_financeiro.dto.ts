@@ -1,7 +1,7 @@
 export class CreateTabAnalistaFinanceiroDto {
 
     id: number;
-    nome: string;
+    nome: string; //remover
     email: string;
     telefone: string;
     departamento: string;
@@ -10,7 +10,7 @@ export class CreateTabAnalistaFinanceiroDto {
     usuario: string;
     nome_analista_financeiro: string;
     tempo_medio_resposta: number;
-    nps_analista: number;
-    media_contatos_semanais: number;
+    
+    media_contatos_semannps_analista: number;ais: number;
 
 }

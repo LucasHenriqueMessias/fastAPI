@@ -35,8 +35,8 @@ export class AuthService {
     return `this action returns a list of auth`;
   }
 
-  async findOne(user: string) {
-    return this.loginService.getByUsername(user);
+  async findOne(username: string) {
+    return this.loginService.getByUsername(username);
   }
 
   update(id: number, updateAuthDto: UpdateAuthDto) {

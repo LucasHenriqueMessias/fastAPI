@@ -29,6 +29,7 @@ import { TabFotografiaClienteModule } from './tab_fotografia_cliente/tab_fotogra
 import { TabContratoModule } from './tab_contrato/tab_contrato.module';
 import { TabIndicacaoClienteModule } from './tab_indicacao_cliente/tab_indicacao_cliente.module';
 import { TabSinalAmareloModule } from './tab_sinal_amarelo/tab_sinal_amarelo.module';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -71,6 +72,7 @@ import { TabSinalAmareloModule } from './tab_sinal_amarelo/tab_sinal_amarelo.mod
     TabContratoModule,
     TabIndicacaoClienteModule,
     TabSinalAmareloModule,
+    AuthModule,
 
   ],
   controllers: [AppController],

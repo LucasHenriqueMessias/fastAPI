@@ -7,14 +7,8 @@ export class Login {
     @Column({ unique: true, type: 'text' })
     user: string;
     @Column({ type: 'text' })
-    salt: string;
+    password: string;
 
-    @Column({ type: 'text' })
-    hash: string;
-
-    @ManyToOne(() => TabLoja, (loja) => loja.id_loja) 
-    loja: TabLoja;
-    
     @Column({ type: 'boolean', default: true })
     active: boolean;
 }

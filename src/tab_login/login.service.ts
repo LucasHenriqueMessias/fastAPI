@@ -4,57 +4,71 @@ import { UpdateLoginDto } from './dto/update-login.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Login } from './entities/login.entity'
 import { Repository } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 @Injectable()
 export class LoginService {
 
   constructor(
     @InjectRepository(Login)
     private readonly loginRepository:
-    Repository<Login>){
+      Repository<Login>) {
 
-    }
-
-  async create(createLoginDto: CreateLoginDto) {
-    const login = this.loginRepository.create(createLoginDto);
-    return await this.loginRepository.save(login);
   }
 
+  async create(createLoginDto: CreateLoginDto) {
+    const saltRounds = 10;
+    const loginExiste = await this.loginRepository.createQueryBuilder('login').where('login.user = :user', { user: createLoginDto.user }).getOne();
+    if (loginExiste) {
+      throw new Error('Usuário já cadastrado');
+    }
+    createLoginDto.password = await bcrypt.hash(createLoginDto.password, saltRounds);
+
+    const login = this.loginRepository.create(createLoginDto);
+
+    return await this.loginRepository.save(login);
+
+  }
+
+
+  async getByUsername(username: string) {
+  const user = await this.loginRepository.findOne({
+where: { user: username }
+  });
+ if(!user){
+   throw new NotFoundException('Usuário não encontrado');
+  } 
+  return user
+} 
+
   async findAll() {
-    return await this.loginRepository.find({
-      relations: { 
-        loja: true
-      }
-    });
-    
+    return await this.loginRepository.find();
+
   }
 
   async findOne(user: string) {
-      return await this.loginRepository.findOne({
-        where: {user},
-        relations:{
-          loja: true
-        }
-      });
+    return await this.loginRepository.findOne({
+      where: { user }
+    });
   }
 
   async update(user: string, updateLoginDto: UpdateLoginDto) {
     const login = await this.findOne(user);
 
-    if(!login){
+    if (!login) {
       throw new NotFoundException();
     }
 
     Object.assign(login, updateLoginDto);
-    
+
     return await this.loginRepository.save(login);
   }
 
   async remove(user: string) {
-   const login = await this.findOne(user);
-   if(!login){
-    throw new NotFoundException();
-   } 
+    const login = await this.findOne(user);
+    if (!login) {
+      throw new NotFoundException();
+    }
 
-   return await this.loginRepository.remove(login);
+    return await this.loginRepository.remove(login);
   }
 }

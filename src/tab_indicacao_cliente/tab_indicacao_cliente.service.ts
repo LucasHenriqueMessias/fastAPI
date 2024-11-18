@@ -33,4 +33,15 @@ export class TabIndicacaoClienteService {
   async remove(id: number): Promise<void> {
     await this.tabIndicacaoClienteRepository.delete(id);
   }
+
+    //coleta a informação de quantas empresas cada consultor prospectou
+    async getCountIndicacaoPorUsuario(): Promise<TabIndicacaoCliente[]> {
+      return await this.tabIndicacaoClienteRepository.createQueryBuilder('tab_indicacao_cliente')
+      .select('tab_indicacao_cliente.usuario', 'usuario')
+      .addSelect('COUNT(tab_indicacao_cliente.razao_social)', 'count')
+      .groupBy('tab_indicacao_cliente.usuario')
+      .getRawMany();
+      
+  
+    }
 }

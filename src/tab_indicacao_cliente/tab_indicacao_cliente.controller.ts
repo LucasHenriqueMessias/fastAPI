@@ -17,6 +17,10 @@ export class TabIndicacaoClienteController {
     return this.tabIndicacaoClienteService.findAll();
   }
 
+  @Get('count-indicacao-usuario')
+  CountIndicacaoPorUsuario() {
+    return this.tabIndicacaoClienteService.getCountIndicacaoPorUsuario();
+  }
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.tabIndicacaoClienteService.findOne(+id);

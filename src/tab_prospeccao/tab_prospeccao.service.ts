@@ -25,6 +25,18 @@ export class TabProspeccaoService {
     return this.tabProspeccaoRepository.findOne({ where: { id } });
   }
 
+
+  //coleta a informação de quantas empresas cada consultor prospectou
+  async getEmpresasCountByConsultor(): Promise<TabProspeccao[]> {
+    return await this.tabProspeccaoRepository.createQueryBuilder('tab_prospeccao')
+    .select('tab_prospeccao.consultor_comercial', 'consultor_comercial')
+    .addSelect('COUNT(tab_prospeccao.consultor_comercial)', 'count')
+    .groupBy('tab_prospeccao.consultor_comercial')
+    .getRawMany();
+    
+
+  }
+
   async update(id: number, updateTabProspeccaoDto: UpdateTabProspeccaoDto): Promise<TabProspeccao> {
     await this.tabProspeccaoRepository.update(id, updateTabProspeccaoDto);
     return this.tabProspeccaoRepository.findOne({ where: { id } });

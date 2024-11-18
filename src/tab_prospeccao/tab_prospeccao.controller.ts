@@ -17,6 +17,12 @@ export class TabProspeccaoController {
     return this.tabProspeccaoService.findAll();
   }
 
+  //exibe quantas empresas cada consultor prospectou
+  @Get('count-empresas-consultor')
+  getEmpresasCountByConsultor() {
+    return this.tabProspeccaoService.getEmpresasCountByConsultor();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.tabProspeccaoService.findOne(+id);

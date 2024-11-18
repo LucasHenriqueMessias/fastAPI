@@ -15,6 +15,9 @@ export class TabUpload {
     tipoArquivo: string;
     
     @Column()
-    pdfPath: string; // Campo para armazenar o caminho do arquivo PDF
+    filePath: string; // Campo para armazenar o caminho do arquivo PDF
+
+    @Column()
+    usuario: string;
 
 }

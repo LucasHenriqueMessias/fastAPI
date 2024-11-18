@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: "Tab_Agenda"})
 export class TabReuniao {
@@ -20,7 +20,7 @@ export class TabReuniao {
     data_marcada: Date;
     @Column({type: 'timestamptz'})
     data_realizada: Date;
-    @Column({type: 'timestamptz'})
+    @CreateDateColumn({ type: 'timestamptz', nullable: true })
     data_criacao: Date;
     @Column({type: 'text'})
     caminho: string;

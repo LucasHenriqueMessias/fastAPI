@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: "Tab_Regime_Tributario"})
 export class TabRegimeTributario {
@@ -20,7 +20,7 @@ export class TabRegimeTributario {
     ISS: number;
     @Column({ type: 'float' })
     previdencia: number;
-    @Column({ type: 'timestamptz' })
+    @CreateDateColumn({ type: 'timestamptz', nullable: true })
     Data_Regime: Date;
     @Column({ type: 'text'})
     Descricao: string;

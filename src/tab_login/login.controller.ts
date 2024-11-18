@@ -1,17 +1,23 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { LoginService } from './login.service';
 import { CreateLoginDto } from './dto/create-login.dto';
 import { UpdateLoginDto } from './dto/update-login.dto';
+import { Public } from '../auth/public.decorator';
+import { RolesGuard } from 'src/auth/roles.guard';
 
 @Controller('login')
 export class LoginController {
   constructor(private readonly loginService: LoginService) {}
 
+  @UseGuards(RolesGuard)
   @Post()
   create(@Body() createLoginDto: CreateLoginDto) {
+
+
     return this.loginService.create(createLoginDto);
   }
 
+  @UseGuards(RolesGuard)
   @Get()
   findAll() {
     return this.loginService.findAll();

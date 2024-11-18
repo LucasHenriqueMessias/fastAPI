@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn } from 'typeorm';
 
 @Entity({ name: 'tab_ferramenta' })
 export class TabFerramenta {
@@ -8,11 +8,11 @@ export class TabFerramenta {
   @Column({ type: 'text' })
   nome_ferramenta: string;
 
-  @Column({ type: 'timestamptz' })
+  @CreateDateColumn({ type: 'timestamptz', nullable: true })
   data_criacao: Date;
 
-  @Column({ type: 'timestamptz' })
-  data_atualizacao: Date;
+  @UpdateDateColumn({ type: 'timestamptz', nullable: true })
+  data_alteracao: Date;
 
   @Column({ type: 'text' })
   usuario_criacao: string;

@@ -7,6 +7,7 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { LoginModule } from 'src/tab_login/login.module'; // Ensure this import is correct
 
+
 @Module({
   imports: [
     LoginModule, // Ensure LoginModule is imported
@@ -28,6 +29,7 @@ import { LoginModule } from 'src/tab_login/login.module'; // Ensure this import 
       useClass: AuthGuard,
     },
     AuthService,
+    
   ],
   exports: [AuthService],
 })

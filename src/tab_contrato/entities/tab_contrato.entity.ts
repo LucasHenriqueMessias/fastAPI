@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
 
 @Entity()
 export class TabContrato {
@@ -6,8 +6,8 @@ export class TabContrato {
     @PrimaryGeneratedColumn()
     id: number; //padrão
 
-    @Column()
-    data_criacao: Date; //padrão
+    @CreateDateColumn({ type: 'timestamptz', nullable: true })
+    data_criacao: Date;
 
     @Column()
     usuario: string; //padrão

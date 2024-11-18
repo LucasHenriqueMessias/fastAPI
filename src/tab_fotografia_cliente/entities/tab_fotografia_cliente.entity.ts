@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
 
 @Entity()
 export class TabFotografiaCliente {
@@ -12,7 +12,7 @@ export class TabFotografiaCliente {
     @Column({ type: 'varchar' })
     cnpj: string;
 
-    @Column({ type: 'timestamptz' })
+    @CreateDateColumn({ type: 'timestamptz', nullable: true })
     data_criacao: Date;
 
     @Column({ type: 'varchar' })

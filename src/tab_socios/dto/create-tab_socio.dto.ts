@@ -21,5 +21,5 @@ export class CreateTabSocioDto {
     eneagrama: string;
     hobbies: string;
     relatorio_prospeccao: string;
-
+    opcao_pelo_mei: boolean;
 }

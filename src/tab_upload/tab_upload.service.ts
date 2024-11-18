@@ -48,12 +48,42 @@ export class TabUploadService {
   async saveFile(file: Express.Multer.File, createTabUploadDto: CreateTabUploadDto): Promise<TabUpload> {
     const tabUpload = this.tabUploadRepository.create({
       ...createTabUploadDto,
-      pdfPath: file.path, // Salva o caminho do arquivo PDF
+      filePath: file.path, // Ensure the file path is saved correctly
     });
     return this.tabUploadRepository.save(tabUpload);
   }
 
   async findByTipo(tipoArquivo: string): Promise<TabUpload[]> {
     return this.tabUploadRepository.find({ where: { tipoArquivo } });
+  }
+
+  async saveXlsxFile(file: Express.Multer.File, createTabUploadDto: CreateTabUploadDto): Promise<TabUpload> {
+    const tabUpload = this.tabUploadRepository.create({
+      ...createTabUploadDto // Salva o caminho do arquivo XLSX
+    });
+    return this.tabUploadRepository.save(tabUpload);
+  }
+
+  async findAllXlsx(): Promise<TabUpload[]> {
+    return this.tabUploadRepository.find({ where: { tipoArquivo: 'xlsx' } });
+  }
+
+  async findOneXlsx(id: number){
+    const tabUpload = await this.tabUploadRepository.findOne({ where: { id, tipoArquivo: 'xlsx' } });
+    if (!tabUpload) {
+      throw new NotFoundException(`Record with ID ${id} not found`);
+    }
+    return tabUpload;
+  }
+
+  async findByTipoXlsx(tipoArquivo: string): Promise<TabUpload[]> {
+    return this.tabUploadRepository.find({ where: { tipoArquivo } });
+  }
+
+  async removeXlsx(id: number): Promise<void> {
+    const result = await this.tabUploadRepository.delete({ id, tipoArquivo: 'xlsx' });
+    if (result.affected === 0) {
+      throw new NotFoundException(`Record with ID ${id} not found`);
+    }
   }
 }

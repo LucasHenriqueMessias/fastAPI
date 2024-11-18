@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
 
 @Entity()
 export class TabSinalAmarelo {
@@ -14,7 +14,7 @@ export class TabSinalAmarelo {
 
     @Column()
     status: string;
-
-    @Column()
+    
+    @CreateDateColumn({ type: 'timestamptz', nullable: true })
     data_criacao: Date;
 }

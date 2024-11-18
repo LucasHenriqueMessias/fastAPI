@@ -1,13 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
 
 @Entity({ name: 'tab_prospeccao' })
 export class TabProspeccao {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'date' })
+  @CreateDateColumn({ type: 'timestamptz', nullable: true })
   data: Date;
-
+  
   @Column({ type: 'varchar', length: 255 })
   consultor_comercial: string;
 

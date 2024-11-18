@@ -15,20 +15,15 @@ export class LoginService {
 
   }
 
-  async create(createLoginDto: CreateLoginDto) {
-    const saltRounds = 10;
-    const loginExiste = await this.loginRepository.createQueryBuilder('login').where('login.user = :user', { user: createLoginDto.user }).getOne();
-    if (loginExiste) {
-      throw new Error('Usuário já cadastrado');
-    }
-    createLoginDto.password = await bcrypt.hash(createLoginDto.password, saltRounds);
-
-    const login = this.loginRepository.create(createLoginDto);
-
-    return await this.loginRepository.save(login);
-
+  async create(createLoginDto: CreateLoginDto): Promise<Login> {
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(createLoginDto.password, salt);
+    const newLogin = this.loginRepository.create({
+      ...createLoginDto,
+      password: hashedPassword,
+    });
+    return this.loginRepository.save(newLogin);
   }
-
 
   async getByUsername(username: string) {
   const user = await this.loginRepository.findOne({

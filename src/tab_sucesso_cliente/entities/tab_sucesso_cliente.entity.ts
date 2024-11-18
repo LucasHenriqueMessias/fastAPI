@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
 
 @Entity({ name: 'tab_sucesso_cliente' })
 export class TabSucessoCliente {
@@ -30,7 +30,7 @@ export class TabSucessoCliente {
     @Column({ type: 'varchar', length: 50 })
     usuario: string;
 
-    @Column({ type: 'date' })
+    @CreateDateColumn({ type: 'timestamptz', nullable: true })
     data: Date;
 
     @Column({ type: 'date' })

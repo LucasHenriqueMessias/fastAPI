@@ -11,4 +11,10 @@ export class Login {
 
     @Column({ type: 'boolean', default: true })
     active: boolean;
+
+    @Column({ type: 'text', default: 'user' })
+    role: string;
+
+    @Column({ type: 'text' })
+    department: string;
 }

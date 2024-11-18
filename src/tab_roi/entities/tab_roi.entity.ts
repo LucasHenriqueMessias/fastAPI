@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
 
 @Entity()
 export class TabRoi {
@@ -12,7 +12,7 @@ export class TabRoi {
     @Column({ type: 'varchar' })
     usuario: string;
 
-    @Column({ type: 'timestamptz' })
+    @CreateDateColumn({ type: 'timestamptz', nullable: true })
     data_criacao: Date;
 
     @Column({ type: 'varchar' })

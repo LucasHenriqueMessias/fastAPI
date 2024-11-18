@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
 
 @Entity()
 export class TabParceriaFast {
@@ -6,7 +6,7 @@ export class TabParceriaFast {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @CreateDateColumn({ type: 'timestamptz', nullable: true })
     data_criacao: Date;
 
     @Column()

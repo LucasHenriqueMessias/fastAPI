@@ -5,7 +5,7 @@ import { UpdateTabProspeccaoDto } from './dto/update-tab_prospeccao.dto';
 
 @Controller('tab-prospeccao')
 export class TabProspeccaoController {
-  constructor(private readonly tabProspeccaoService: TabProspeccaoService) {}
+  constructor(private readonly tabProspeccaoService: TabProspeccaoService) { }
 
   @Post()
   create(@Body() createTabProspeccaoDto: CreateTabProspeccaoDto) {
@@ -22,7 +22,31 @@ export class TabProspeccaoController {
   getEmpresasCountByConsultor() {
     return this.tabProspeccaoService.getEmpresasCountByConsultor();
   }
+  @Get('consultor-bni-true')
+  getEmpresasCountByConsultorWithBniTrue() {
+    return this.tabProspeccaoService.getEmpresasCountByConsultorWithBniTrue();
+  }
 
+  @Get('consultor-indicacao-true')
+  getEmpresasCountByConsultorWithIndicacaoTrue() {
+    return this.tabProspeccaoService.getEmpresasCountByConsultorWithIndicacaoTrue();
+  }
+
+  @Get('bni-counts')
+  getBniCounts() {
+    return this.tabProspeccaoService.getBniCounts();
+  }
+
+  @Get('indicacao-counts')
+  getIndicacaoCounts() {
+    return this.tabProspeccaoService.getIndicacaoCounts();
+  }
+
+  @Get('indicacao-consultor')
+  getCountIndicacaoConsultor() {
+    return this.tabProspeccaoService.getCountIndicacaoConsultor();
+  }
+  
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.tabProspeccaoService.findOne(+id);

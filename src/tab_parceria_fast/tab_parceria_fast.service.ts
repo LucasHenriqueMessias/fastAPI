@@ -33,4 +33,14 @@ export class TabParceriaFastService {
   async remove(id: number): Promise<void> {
     await this.tabParceriaFastRepository.delete(id);
   }
+
+  async getCountParceriaPorUsuario(): Promise<TabParceriaFast[]> {
+    return await this.tabParceriaFastRepository.createQueryBuilder('tab_parceria_fast')
+    .select('tab_parceria_fast.usuario', 'usuario')
+    .addSelect('COUNT(tab_parceria_fast.parceiro)', 'count')
+    .groupBy('tab_parceria_fast.usuario')
+    .getRawMany();
+    
+
+  }
 }

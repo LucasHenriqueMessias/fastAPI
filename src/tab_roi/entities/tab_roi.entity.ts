@@ -15,36 +15,37 @@ export class TabRoi {
     @CreateDateColumn({ type: 'timestamptz', nullable: true })
     data_criacao: Date;
 
-    @Column({ type: 'varchar' })
-    maquina_cartao: string;
 
-    @Column({ type: 'varchar' })
-    emprestimos_financiamentos: string;
+    @Column({ type: 'integer' })
+maquina_cartao: number;
 
-    @Column({ type: 'varchar' })
-    telefonia: string;
+@Column({ type: 'integer' })
+emprestimos_financiamentos: number;
 
-    @Column({ type: 'varchar' })
-    contabilidade: string;
+@Column({ type: 'integer' })
+telefonia: number;
 
-    @Column({ type: 'varchar' })
-    taxas_bancarias: string;
+@Column({ type: 'integer' })
+contabilidade: number;
 
-    @Column({ type: 'varchar' })
-    taxas_administrativas: string;
+@Column({ type: 'integer' })
+taxas_bancarias: number;
 
-    @Column({ type: 'varchar' })
-    investimentos: string;
+@Column({ type: 'integer' })
+taxas_administrativas: number;
 
-    @Column({ type: 'varchar' })
-    juridico: string;
+@Column({ type: 'integer' })
+investimentos: number;
 
-    @Column({ type: 'varchar' })
-    mensalidade_roi: string;
+@Column({ type: 'integer' })
+juridico: number;
 
-    @Column({ type: 'varchar' })
-    ferias: string;
+@Column({ type: 'integer' })
+mensalidade_roi: number;
 
-    @Column({ type: 'varchar' })
-    aumento_equipe: string;
+@Column({ type: 'integer' })
+ferias: number;
+
+@Column({ type: 'integer' })
+aumento_equipe: number;
 }

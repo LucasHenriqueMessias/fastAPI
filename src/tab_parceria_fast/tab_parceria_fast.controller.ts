@@ -17,6 +17,11 @@ export class TabParceriaFastController {
     return this.tabParceriaFastService.findAll();
   }
 
+@Get('count-parceria-usuario')
+getCountParceriaPorUsuario() {
+  return this.tabParceriaFastService.getCountParceriaPorUsuario();
+}
+
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.tabParceriaFastService.findOne(+id);

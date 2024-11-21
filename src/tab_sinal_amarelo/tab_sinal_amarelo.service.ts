@@ -33,4 +33,14 @@ export class TabSinalAmareloService {
   async remove(id: number): Promise<void> {
     await this.tabSinalAmareloRepository.delete(id);
   }
+
+  async findPendingYellowSignal(): Promise<{ user: string, count: number }[]> {
+    return await this.tabSinalAmareloRepository
+      .createQueryBuilder('tab_sinal_amarelo')
+      .select('tab_sinal_amarelo.usuario', 'user')
+      .addSelect('COUNT(tab_sinal_amarelo.usuario)', 'count')
+      .where('tab_sinal_amarelo.status = :status', { status: 'pendente' })
+      .groupBy('tab_sinal_amarelo.usuario')
+      .getRawMany();
+  }
 }

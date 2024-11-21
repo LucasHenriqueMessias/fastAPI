@@ -17,6 +17,11 @@ export class TabSinalAmareloController {
     return this.tabSinalAmareloService.findAll();
   }
 
+  @Get('sinal-amarelo-pendente')
+  findPendingYellowSignal() {
+    return this.tabSinalAmareloService.findPendingYellowSignal();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.tabSinalAmareloService.findOne(+id);

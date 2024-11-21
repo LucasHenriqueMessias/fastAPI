@@ -44,4 +44,13 @@ export class TabIndicacaoClienteService {
       
   
     }
+
+
+    async getCountSegmento(): Promise<TabIndicacaoCliente[]> {
+      return await this.tabIndicacaoClienteRepository.createQueryBuilder('tab_indicacao_cliente')
+      .select('tab_indicacao_cliente.atuacao', 'atuacao')
+      .addSelect('COUNT(tab_indicacao_cliente.atuacao)', 'count')
+      .groupBy('tab_indicacao_cliente.atuacao')
+      .getRawMany();
+    }
 }

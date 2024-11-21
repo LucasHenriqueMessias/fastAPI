@@ -21,6 +21,12 @@ export class TabIndicacaoClienteController {
   CountIndicacaoPorUsuario() {
     return this.tabIndicacaoClienteService.getCountIndicacaoPorUsuario();
   }
+
+  @Get('count-segmento')
+  CountSegmento() {
+    return this.tabIndicacaoClienteService.getCountSegmento();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.tabIndicacaoClienteService.findOne(+id);

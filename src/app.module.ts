@@ -31,6 +31,7 @@ import { TabIndicacaoClienteModule } from './tab_indicacao_cliente/tab_indicacao
 import { TabSinalAmareloModule } from './tab_sinal_amarelo/tab_sinal_amarelo.module';
 import { AuthModule } from './auth/auth.module';
 import { TabNotificacaoModule } from './tab_notificacao/tab_notificacao.module';
+import { TabEventoModule } from './tab_evento/tab_evento.module';
 
 @Module({
   imports: [
@@ -76,6 +77,7 @@ import { TabNotificacaoModule } from './tab_notificacao/tab_notificacao.module';
     TabSinalAmareloModule,
     AuthModule,
     TabNotificacaoModule,
+    TabEventoModule,
 
   ],
   controllers: [AppController],

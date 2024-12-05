@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
 
 @Entity()
 export class TabIndicacaoCliente {
@@ -8,7 +8,7 @@ export class TabIndicacaoCliente {
     @Column()
     usuario: string; //padrão
 
-    @Column()
+    @CreateDateColumn()
     data_criacao: Date; //padrão
 
     @Column()

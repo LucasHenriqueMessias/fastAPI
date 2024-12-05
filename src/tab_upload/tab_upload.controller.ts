@@ -49,6 +49,11 @@ export class TabUploadController {
     }));
   }
 
+  @Get('count-files')
+  async countFile(){
+    return this.tabUploadService.getCountFerramentasUsuario();
+  }
+
   @Get('file/:id')
   async getFile(@Param('id') id: string, @Res() res: Response) {
     const tabUpload = await this.tabUploadService.findOne(+id);

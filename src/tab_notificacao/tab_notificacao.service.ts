@@ -33,7 +33,7 @@ export class TabNotificacaoService {
   }
 
   async findAllByUser(user: string): Promise<TabNotificacao[]> {
-    return await this.notificationRepository.find({where: {user}});
+    return await this.notificationRepository.find({ where: { user, active: true } });
   }
 
   async update(id: string, updateTabFotografiaClienteDto:UpdateTabNotificacaoDto): Promise<TabNotificacao> {

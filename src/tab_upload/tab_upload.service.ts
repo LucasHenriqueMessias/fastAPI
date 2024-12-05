@@ -86,4 +86,13 @@ export class TabUploadService {
       throw new NotFoundException(`Record with ID ${id} not found`);
     }
   }
+
+
+  async getCountFerramentasUsuario(): Promise<TabUpload[]> {
+    return await this.tabUploadRepository.createQueryBuilder('tab_upload')
+    .select('tab_upload.usuario', 'usuario')
+    .addSelect('COUNT(tab_upload.usuario)', 'count')
+    .groupBy('tab_upload.usuario')
+    .getRawMany();
+  }
 }

@@ -58,6 +58,18 @@ where: { user: username }
     return await this.loginRepository.save(login);
   }
 
+  async updateNivel(user: string, nivel: number) {
+    const login = await this.findOne(user);
+
+    if (!login) {
+      throw new NotFoundException('Usuário não encontrado');
+    }
+
+    login.nivel = Number(login.nivel) + Number(nivel);
+
+    return await this.loginRepository.save(login);
+  }
+
   async remove(user: string) {
     const login = await this.findOne(user);
     if (!login) {

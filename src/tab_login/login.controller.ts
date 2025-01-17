@@ -12,8 +12,6 @@ export class LoginController {
   @UseGuards(RolesGuard)
   @Post()
   create(@Body() createLoginDto: CreateLoginDto) {
-
-
     return this.loginService.create(createLoginDto);
   }
 
@@ -31,6 +29,12 @@ export class LoginController {
   @Patch('update/:user')
   update(@Param('user') user: string, @Body() updateLoginDto: UpdateLoginDto) {
     return this.loginService.update(user, updateLoginDto);
+  }
+
+  @Public()
+  @Patch('exp/:user/:nivel')
+  updateNivel(@Param('user') user: string, @Param('nivel') nivel: string) {
+    return this.loginService.updateNivel(user, Number(nivel));
   }
 
   @Delete('delete/:user')

@@ -6,4 +6,5 @@ export class CreateLoginDto {
   active: boolean;
   role: string = 'user';
   department: string;
+  nivel: number;
 }

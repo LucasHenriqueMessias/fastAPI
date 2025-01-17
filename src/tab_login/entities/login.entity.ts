@@ -17,4 +17,7 @@ export class Login {
 
     @Column({ type: 'text' })
     department: string;
+
+    @Column({ type: 'float'})
+    nivel: number;
 }

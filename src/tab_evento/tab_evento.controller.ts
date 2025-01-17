@@ -19,16 +19,16 @@ export class TabEventoController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.tabEventoService.findOne(+id);
+    return this.tabEventoService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTabEventoDto: UpdateTabEventoDto) {
-    return this.tabEventoService.update(+id, updateTabEventoDto);
+    return this.tabEventoService.update(id, updateTabEventoDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.tabEventoService.remove(+id);
+    return this.tabEventoService.remove(id);
   }
 }

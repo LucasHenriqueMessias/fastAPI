@@ -32,6 +32,10 @@ import { TabSinalAmareloModule } from './tab_sinal_amarelo/tab_sinal_amarelo.mod
 import { AuthModule } from './auth/auth.module';
 import { TabNotificacaoModule } from './tab_notificacao/tab_notificacao.module';
 import { TabEventoModule } from './tab_evento/tab_evento.module';
+import { TabChecklistReuniaoModule } from './tab_checklist_reuniao/tab_checklist_reuniao.module';
+import { CursosEmbbedVideoModule } from './cursos_embbed_video/cursos_embbed_video.module';
+import { CursosPerguntasModule } from './cursos_perguntas/cursos_perguntas.module';
+import { CursosRespostasModule } from './cursos_respostas/cursos_respostas.module';
 
 @Module({
   imports: [
@@ -78,6 +82,10 @@ import { TabEventoModule } from './tab_evento/tab_evento.module';
     AuthModule,
     TabNotificacaoModule,
     TabEventoModule,
+    TabChecklistReuniaoModule,
+    CursosEmbbedVideoModule,
+    CursosPerguntasModule,
+    CursosRespostasModule,
 
   ],
   controllers: [AppController],
